@@ -17,7 +17,7 @@ create or replace function unicode_turkce_cevir(p_metin in varchar2,
     
   */
   v_deger   varchar2(32767) := p_metin;
-  v_kalan   varchar2(50) := 'ð~Ð~ý~Ý~ö~Ö~ü~Ü~þ~Þ~ç~Ç~';
+  v_kalan   varchar2(50) := 'ğ~Ğ~ı~İ~ö~Ö~ü~Ü~ş~Ş~ç~Ç~';
   v_hedef   varchar2(400) := '&#287;~&#286;~&#305;~&#304;~&#246;~&#214;~&#252;~&#220;~&#351;~&#350;~&#231;~&#199;~';
   v_kaynak  varchar2(5);
   v_unicode varchar2(6);
