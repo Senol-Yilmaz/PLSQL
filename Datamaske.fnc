@@ -1,4 +1,12 @@
 create or replace function Datamaske (p_Wert in varchar2,p_Maske in varchar2,p_Oracle_maske_JN in varchar2:='N',p_typ in varchar2:=null) return varchar2 is
+ /*
+p_Wert            => Value
+p_Maske           => Custom Format using "X" example Value is 1234567 and the given format is "XX XXX XX" Result => 12 234 67
+                     Regular Format for Date   : Value is 08-OCT-24 and the given format is "DD.MM.YYYY" Result => 08.10.2024
+                     Regular Format for Number : Value is 1234567 given format is "9,999,999" or "9G999G999D99" Result => 1,234,567 or 1,234,567.00
+p_oracle_Maske_JN => <J>a (Yes) or <N>ein (No); If you using regular format then the value must set with "J",default value is "N"
+p_type            => Data Type for regular format is <N>umber / <D>ate else any character for example like <S>tring
+*/
   v_Wert varchar2(4000) :=p_wert;
   v_Datamaske varchar2(4000);
   v_chr varchar2(1);
