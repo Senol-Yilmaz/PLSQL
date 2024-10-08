@@ -3,7 +3,7 @@ create or replace function get_KoelnerPhon(strWord varchar2)
 
   /* 
       Purpose:
-      For German language, making like search easier and faster
+      For German language, making like searchs easier and faster
       For example Strasse or Straße / Schmitt or Schmidt or Man or Mann ther many word like these kind and you would find the similarity with this search options "%" "_"
       https://de.wikipedia.org/wiki/Kölner_Phonetik
       How to use:
