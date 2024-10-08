@@ -3,8 +3,8 @@ create or replace function unicode_turkce_cevir(p_metin in varchar2,
   return varchar2 deterministic is
   /* 
       Purpose:
-      For Türkish language, converting Türkish Characters to Unicode characters
-      For example Şenol Yılmaz => &#350;enol Y&#305;lmaz
+      For TÃ¼rkish language, converting TÃ¼rkish Characters to Unicode characters
+      For example Åenol YÄ±lmaz => &#350;enol Y&#305;lmaz
   
       How to use:
       p_Metin         => Text
@@ -17,7 +17,7 @@ create or replace function unicode_turkce_cevir(p_metin in varchar2,
     
   */
   v_deger   varchar2(32767) := p_metin;
-  v_kalan   varchar2(50) := 'ğ~Ğ~ı~İ~ö~Ö~ü~Ü~ş~Ş~ç~Ç~';
+  v_kalan   varchar2(50) := 'Ã°~Ã~Ã½~Ã~Ã¶~Ã–~Ã¼~Ãœ~Ã¾~Ã~Ã§~Ã‡~';
   v_hedef   varchar2(400) := '&#287;~&#286;~&#305;~&#304;~&#246;~&#214;~&#252;~&#220;~&#351;~&#350;~&#231;~&#199;~';
   v_kaynak  varchar2(5);
   v_unicode varchar2(6);
