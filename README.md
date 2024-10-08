@@ -5,3 +5,4 @@
 |-------------|------------------------------------------------------|
 |Datamaske    |Custom or regular Formating of Number, Date or String |
 |getKoelnerPhon| In german language making like searchs easier and faster|
+|unicode_turkce_cevir|Converting türkish characters to Unicode characters|
