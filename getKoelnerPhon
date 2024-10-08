@@ -1,0 +1,184 @@
+create or replace function get_KoelnerPhon(strWord varchar2)
+  return varchar2 deterministic is
+
+  /* 
+      Purpose:
+      For German language, making like search easier and faster
+      For example Strasse or Straße / Schmitt or Schmidt or Man or Mann ther many word like these kind and you would find the similarity with this search options "%" "_"
+      https://de.wikipedia.org/wiki/Kölner_Phonetik
+      How to use:
+      strWord            => String
+    
+      Change Log
+      Date        By Whom               Description
+      ----------  --------------------- --------------------------------------------------------------
+      01.08.2019  Senol YILMAZ          Created
+    
+  */
+
+  Word         varchar2(4000);
+  v_Word       varchar2(4000);
+  WordLen      integer;
+  Code         varchar2(4000);
+  PhoneticCode varchar2(4000);
+  intX         integer;
+begin
+
+  Word := lower(strWord);
+  if length(Word) < 1 then
+    return '0';
+  end if;
+
+  -- Ersetzen von einzelnen Sonderzeichen/Kombinationen
+  word    := replace(word, 'v', 'f');
+  word    := replace(word, 'w', 'f');
+  word    := replace(word, 'j', 'i');
+  word    := replace(word, 'y', 'i');
+  word    := replace(word, 'ph', 'f');
+  word    := replace(word, 'ä', 'a');
+  word    := replace(word, 'ö', 'o');
+  word    := replace(word, 'ü', 'u');
+  word    := replace(word, 'ß', 'ss');
+  word    := replace(word, 'é', 'e');
+  word    := replace(word, 'è', 'e');
+  word    := replace(word, 'à', 'a');
+  word    := replace(word, 'ç', 'c');
+  word    := replace(word, ' ', '%');
+  WordLen := length(Word);
+  if wordlen > 0 then
+    v_Word := Word;
+    Code   := '';
+  
+    -- Anlautprüfung
+    if WordLen = 1 then
+      Word := Word || ' ';
+    end if;
+    if substr(Word, 1, 1) = 'c' then
+      -- vor a,h,k,l,o,q,r,u,x
+      if instr('ahkloqrux', substr(Word, 2, 1)) > 0 then
+        Code := Code + '4';
+      else
+        Code := Code + '8';
+      end if;
+      intX := 2;
+    else
+      intX := 1;
+    end if;
+  
+    -- Code gemäß Ersetzungstabelle
+    while intx <= wordlen loop
+    
+      if instr('aeiou', substr(Word, intx, 1)) > 0 then
+        Code := Code || '0';
+      end if;
+      if instr('% ', substr(Word, intx, 1)) > 0 then
+        Code := Code || ' ';
+      end if;
+      if instr('bp', substr(Word, intx, 1)) > 0 then
+        Code := Code || '1';
+      end if;
+    
+      if instr('dt', substr(Word, intx, 1)) > 0 then
+        -- Sonderbehandlung
+        if intX < wordlen then
+          if instr('csz', substr(word, intx + 1, 1)) > 0 then
+            Code := Code || '8';
+          else
+            Code := Code || '2';
+          end if;
+        else
+          Code := Code || '2';
+        end if;
+      end if;
+    
+      if substr(Word, intx, 1) = 'f' then
+        Code := Code || '3';
+      end if;
+    
+      if instr('gkq', substr(Word, intx, 1)) > 0 then
+        Code := Code || '4';
+      end if;
+    
+      if substr(Word, intx, 1) = 'c' then
+        -- Sonderbehandlung
+        if intX < wordlen then
+          if instr('ahkoqux', substr(word, intx + 1, 1)) > 0 then
+            if instr('sz', substr(word, intx - 1, 1)) > 0 then
+              Code := Code || '8';
+            else
+              Code := Code || '4';
+            end if;
+          else
+            Code := Code || '8';
+          end if;
+        else
+          Code := Code || '8';
+        end if;
+      end if;
+    
+      if substr(Word, intx, 1) = 'x' then
+        -- Sonderbehandlung
+        if intX > 1 then
+          if instr('ckx', substr(word, intx - 1, 1)) > 0 then
+            Code := Code || '8';
+          else
+            Code := Code || '48';
+          end if;
+        else
+          Code := Code || '48';
+        end if;
+      end if;
+    
+      if substr(Word, intx, 1) = 'l' then
+        Code := Code || '5';
+      end if;
+    
+      if instr('mn', substr(Word, intx, 1)) > 0 then
+        Code := Code || '6';
+      end if;
+    
+      if substr(Word, intx, 1) = 'r' then
+        Code := Code || '7';
+      end if;
+    
+      if instr('sz', substr(Word, intx, 1)) > 0 then
+        Code := Code || '8';
+      end if;
+    
+      intx := intx + 1;
+    end loop;
+  
+    -- alle '0'- und mehrfach-Codes entfernen
+    intx         := 1;
+    wordlen      := length(code);
+    phoneticcode := '';
+    word         := '';
+  
+    while intx <= wordlen loop
+      -- '0'-Codes entfernen
+      if substr(code, intx, 1) <> '0' then
+        -- doppelte Codes entfernen
+        if substr(code, intx, 1) <> nvl(word, '$') then
+          phoneticcode := phoneticcode || substr(code, intx, 1);
+        end if;
+        word := substr(code, intx, 1);
+      end if;
+      intx := intx + 1;
+    end loop;
+  
+    -- '0'-Code am Wortanfang bleibt aber bestehen!
+    if substr(code, 1, 1) = '0' then
+      phoneticcode := '0' || phoneticcode;
+    end if;
+  
+    --phoneticcode := upper(substr(v_Word,1,1))||phoneticcode;
+  
+    return phoneticcode;
+  else
+    return Word;
+  end if;
+exception
+  when others then
+    raise_application_error(-20004, v_word, false);
+end;
+/
