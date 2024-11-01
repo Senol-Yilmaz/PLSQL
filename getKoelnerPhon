@@ -8,7 +8,13 @@ create or replace function get_KoelnerPhon(strWord varchar2)
       https://de.wikipedia.org/wiki/Kölner_Phonetik
       How to use:
       strWord            => String
-    
+         example : StrWord =>Schmitt result => 862
+                   StrWord =>Schmidt result => 862  
+                   StrWord =>Schmit result  => 862  
+ 
+      Example for usage in sql :
+       select name,nachname from kunde
+       where get_KoelnerPhon(name) = get_KoelnerPhon('Mann');
       Change Log
       Date        By Whom               Description
       ----------  --------------------- --------------------------------------------------------------
