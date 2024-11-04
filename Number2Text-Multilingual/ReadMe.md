@@ -5,7 +5,7 @@
 
 <!--p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=senol-yilmaz" alt="senol-yilmaz" /></a> --> </p>
 
-- 📫 How to reach me **senol@avsadanismanlik.com.tr**
+- 📫 How to reach me **in/senol-yilmaz-76765415**
 
 - 📄 Know about my experiences [https://www.linkedin.com/in/senol-yilmaz-76765415/](https://www.linkedin.com/in/senol-yilmaz-76765415/)
 
