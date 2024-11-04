@@ -1,5 +1,5 @@
 <b>Installation Script</b>
->Script were created using Pl/SQL
+>Number2textProjectInstallation.sql Script were created using Pl/SQL
 >
 <b>Prerequisite</b>
 <ul>
