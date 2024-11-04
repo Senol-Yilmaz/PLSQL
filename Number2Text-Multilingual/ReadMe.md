@@ -3,6 +3,8 @@
 |Stored Objects| Description                                          |
 |-------------|------------------------------------------------------|
 |Number2Text|Converting Numbers to text into three different languages|
-|Dependent stored procedures|
+Dependent Objects
+|Stored Objects| Description                                          |
+|-------------|------------------------------------------------------|
 |unicode_turkce_cevir|Converting Türkish letters to Unicode or Latin letters|
 |getMultiLang|Conventional translation of a predefined text|
