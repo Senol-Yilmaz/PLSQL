@@ -1,9 +1,9 @@
 <h1 align="center">Hi 👋</h1>
-<h3 align="center">This is Şenol Yılmaz, an intelligent, enthusiastic, strongly self-motivated Senior PL/SQL, Forms and Apex Developer with a broad experience in real time operating systems, with expertise in rdbms designing and developing applications. Excellent at troubleshooting and problem solving. Conscientious, innovative and enjoys working in a team environment even under ”pressure-cooker” situations.</h3>
+<h3 align="center">I'm Şenol, an intelligent, enthusiastic, strongly self-motivated Senior PL/SQL, Forms and Apex Developer with a broad experience in real time operating systems, with expertise in rdbms designing and developing applications. Excellent at troubleshooting and problem solving. Conscientious, innovative and enjoys working in a team environment even under ”pressure-cooker” situations.</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=senol-yilmaz&label=Profile%20views&color=0e75b6&style=flat" alt="senol-yilmaz" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=senol-yilmaz" alt="senol-yilmaz" /></a> </p>
+<!p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=senol-yilmaz" alt="senol-yilmaz" /></a> </p>
 
 - 📫 How to reach me **senol@avsadanismanlik.com.tr**
 
