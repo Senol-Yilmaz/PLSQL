@@ -3,7 +3,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=senol-yilmaz&label=Profile%20views&color=0e75b6&style=flat" alt="senol-yilmaz" /> </p>
 
-<!p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=senol-yilmaz" alt="senol-yilmaz" /></a> </p>
+<!--p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=senol-yilmaz" alt="senol-yilmaz" /></a> --> </p>
 
 - 📫 How to reach me **senol@avsadanismanlik.com.tr**
 
