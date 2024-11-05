@@ -15,9 +15,11 @@
 </ul>
 <b>Also must have select permission for the following views </b>
 <ul>
-<li>SYS.DBA_ARGUMENTS</li>
-<li>SYS.DBA_OBJECTS</li>
-<li>SYS.DBA_SOURCE</li>
-<li>SYS.DBA_TAB_COLUMNS</li>
+<li>SYS.DBMS_APPLICATION_INFO</li>
+<li>SYS.DBMS_OUTPUT</li>
+<li>SYS.ALL_PROCEDURES</li>
+<li>SYS.ALL_SOURCE</li>
+<li>SYS.DBMS_UTILITY</li>
+<li>SYS.OWA_UTIL</li>
 </ul>
 
