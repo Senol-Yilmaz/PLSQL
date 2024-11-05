@@ -13,7 +13,7 @@
 <li>grant debug connect session to "Your Schema";</li>
 <li> and Your Schema user must have dml grants </li> 
 </ul>
-<b>Also must have select permission for the following views </b>
+<b>Also must have select and/or execution permission for the following views </b>
 <ul>
 <li>SYS.DBMS_APPLICATION_INFO</li>
 <li>SYS.DBMS_OUTPUT</li>
