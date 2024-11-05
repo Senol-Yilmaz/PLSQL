@@ -438,7 +438,7 @@ begin
       
       exception
         when no_Data_Found then
-          v_opid := coalesce(global_pkg.xust_menu_kod, user);
+          v_opid :=  user;
       End;
       v_call_stack := dbms_utility.format_call_stack;
       extraction(v_call_stack,
