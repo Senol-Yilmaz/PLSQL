@@ -1,5 +1,5 @@
 <b>Installation Script</b>
->getMultiLangInstallation.sql Script were created using Pl/SQL
+>log4debugInstallation.sql Script were created using Pl/SQL
 >
 <b>Prerequisite</b>
 <ul>
