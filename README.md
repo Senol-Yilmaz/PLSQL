@@ -24,3 +24,4 @@
 |getKoelnerPhon| In german language making like searchs easier and faster|
 |unicode_turkce_cevir|Converting turkish characters to Unicode characters|
 |get_any_lang_Date|Get date text in any language (supported by Oracle)|
+|getMultiLang|Conventional Multilingual Translation Function|
