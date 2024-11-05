@@ -25,6 +25,45 @@ create table LOG4DEBUG_TBL
     maxextents unlimited
   );
 
+create table DEBUG_MONITOR_TBL
+(
+  owner         VARCHAR2(128) not null,
+  object_name   VARCHAR2(256) not null,
+  debug_enabled VARCHAR2(1),
+  op_id         VARCHAR2(128),
+  op_date       DATE default sysdate
+)
+tablespace AVSA_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 5M
+    next 504K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table DEBUG_MONITOR_TBL
+  add constraint PK_DEBUG_MONITOR primary key (OWNER, OBJECT_NAME)
+  using index 
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate check constraints 
+alter table DEBUG_MONITOR_TBL
+  add constraint CH_DEBUG_MON_CHK
+  check (DEBUG_ENABLED in ('Y','N'));
+
+
 create or replace procedure log4debug(p_Log_Debug   clob := null,
                                       p_Description in varchar2 := null,
                                       p_Truncate    in integer := null) is
@@ -191,7 +230,7 @@ create or replace procedure log4debug(p_Log_Debug   clob := null,
                 end;
         -----Eng:To determine the existing logging tables and objects
         -----Ger:So ermitteln Sie die vorhandenen Protokolltabellen und -objekte
-        -----Tur:Mevcut günlük tablolarýný ve nesnelerini belirlemek için
+        -----Tur:Mevcut gÃ¼nlÃ¼k tablolarÃ½nÃ½ ve nesnelerini belirlemek iÃ§in
       
         -----Set your own code
         v_pf := case
@@ -256,7 +295,7 @@ create or replace procedure log4debug(p_Log_Debug   clob := null,
         
         end loop;
         if v_pf = 'X' and
-           coalesce(v_parent, '½') not like '%' || v_parent_sub || '%' then
+           coalesce(v_parent, 'Â½') not like '%' || v_parent_sub || '%' then
           v_parent   := case
                           when v_parent is not null then
                            v_parent || '->'
@@ -287,7 +326,7 @@ create or replace procedure log4debug(p_Log_Debug   clob := null,
         v_result     := v_parent_sub;
         flg1         := false;
       elsif v_pf = 'T' and
-            coalesce(v_parent, '½') not like '%' || initcap(v_name) || '%' then
+            coalesce(v_parent, 'Â½') not like '%' || initcap(v_name) || '%' then
         v_current    := initcap(v_name) || ' (Trigger)';
         v_parent_sub := case
                           when v_parent is not null then
@@ -307,7 +346,7 @@ create or replace procedure log4debug(p_Log_Debug   clob := null,
       if v_parent not like '%anonymous block%' then
         p_parent := case
                       when v_parent is not null and
-                           coalesce(p_parent, '½') not like '%' || v_parent || '%' then
+                           coalesce(p_parent, 'Â½') not like '%' || v_parent || '%' then
                        v_parent
                       else
                        null
