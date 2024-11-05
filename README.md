@@ -26,3 +26,4 @@
 |get_any_lang_Date|Get date text in any language (supported by Oracle)|
 |Number2Text-Multilingual|Converting numbers to text|
 |getMultiLang|Conventional Multilingual Translation Function|
+|log4debug|Procedure for debugging/logging purposes|
