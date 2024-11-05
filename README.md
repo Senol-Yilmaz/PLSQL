@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Şenol. </h1>
-<h3 align="center">Strongly self-motivated Senior PL/SQL, Forms and Apex Developer with over 30 years of experience, with extensive experience in real-time operating systems, with expertise in designing and developing rdbms applications. Excellent at troubleshooting and problem solving.  I have successfully completed more than 10 major Insurance (Production, Reinsurance, Claims, Collections and Accounting) projects as a team member, team leader, manager and project owner. The average duration of each project was 10 months. </h3>
+<h3 align="center">Strongly self-motivated Senior PL/SQL, Forms and Apex Developer with 30+ years of experience, strongly self-motivated, with extensive experience in real-time operating systems, with expertise in designing and developing rdbms applications in Oracle. Excellent at troubleshooting and problem solving.  I have successfully completed more than 10 major Insurance (Production, Reinsurance, Claims, Collections and Accounting) projects as a team member, team leader, manager and project owner. The average duration of each project was 10 months. </h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=senol-yilmaz&label=Profile%20views&color=0e75b6&style=flat" alt="senol-yilmaz" /> </p>
 
