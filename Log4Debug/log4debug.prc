@@ -164,7 +164,7 @@ create or replace procedure log4debug(p_Log_Debug   clob := null,
                 end;
         -----Eng:To determine the existing logging tables and objects
         -----Ger:So ermitteln Sie die vorhandenen Protokolltabellen und -objekte
-        -----Tur:Mevcut günlük tablolarýný ve nesnelerini belirlemek için
+        -----Tur:Mevcut gÃ¼nlÃ¼k tablolarÃ½nÃ½ ve nesnelerini belirlemek iÃ§in
       
         -----Set your own code
         v_pf := case
@@ -229,7 +229,7 @@ create or replace procedure log4debug(p_Log_Debug   clob := null,
         
         end loop;
         if v_pf = 'X' and
-           coalesce(v_parent, '½') not like '%' || v_parent_sub || '%' then
+           coalesce(v_parent, 'Â½') not like '%' || v_parent_sub || '%' then
           v_parent   := case
                           when v_parent is not null then
                            v_parent || '->'
@@ -260,7 +260,7 @@ create or replace procedure log4debug(p_Log_Debug   clob := null,
         v_result     := v_parent_sub;
         flg1         := false;
       elsif v_pf = 'T' and
-            coalesce(v_parent, '½') not like '%' || initcap(v_name) || '%' then
+            coalesce(v_parent, 'Â½') not like '%' || initcap(v_name) || '%' then
         v_current    := initcap(v_name) || ' (Trigger)';
         v_parent_sub := case
                           when v_parent is not null then
@@ -280,7 +280,7 @@ create or replace procedure log4debug(p_Log_Debug   clob := null,
       if v_parent not like '%anonymous block%' then
         p_parent := case
                       when v_parent is not null and
-                           coalesce(p_parent, '½') not like '%' || v_parent || '%' then
+                           coalesce(p_parent, 'Â½') not like '%' || v_parent || '%' then
                        v_parent
                       else
                        null
@@ -372,7 +372,7 @@ begin
       
       exception
         when no_Data_Found then
-          v_opid := coalesce(global_pkg.xust_menu_kod, user);
+          v_opid := user;
       End;
       v_call_stack := dbms_utility.format_call_stack;
       extraction(v_call_stack,
